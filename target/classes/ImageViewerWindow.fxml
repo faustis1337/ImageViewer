@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="766.0" prefWidth="1134.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.ImageViewerWindowController">
+    <top>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <ButtonBar nodeOrientation="LEFT_TO_RIGHT">
+                     <buttons>
+                        <Button id="btnNext" mnemonicParsing="false" onAction="#handleStartAction" text="Start slideshow" />
+                              <Button id="btnNext" mnemonicParsing="false" onAction="#handleStopAction" text="Stop slideshow" />
+                        <VBox alignment="CENTER" prefHeight="55.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transition delay" />
+                              <Slider fx:id="sliderDelay" blockIncrement="0.0" majorTickUnit="1.0" max="5.0" min="1.0" minWidth="0.0" minorTickCount="0" prefHeight="38.0" prefWidth="160.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+                           </children>
+                        </VBox>
+                     </buttons>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </ButtonBar>
+                  <ButtonBar prefHeight="55.0" prefWidth="604.0">
+                     <buttons>
+                        <Button id="btnPrevious" mnemonicParsing="false" onAction="#handleRemoveSlideshow" text="Remove slideshow">
+                           <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </opaqueInsets>
+                        </Button>
+                        <Button id="btnPrevious" mnemonicParsing="false" onAction="#handleAddSlideshow" text="Add slideshow">
+                           <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </opaqueInsets>
+                        </Button>
+                        <TextField fx:id="fieldName" promptText="Slideshow Name" />
+                     </buttons>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ButtonBar>
+               </children>
+            </HBox>
+            <TableView fx:id="tableSlideshow" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="115.0" prefWidth="1134.0">
+              <columns>
+                <TableColumn fx:id="columnName" prefWidth="145.0" text="Slideshow Name" />
+                  <TableColumn fx:id="columnImages" prefWidth="106.0" text="Total Images" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+    </top>
+    <center>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <center>
+            <VBox alignment="TOP_CENTER" prefHeight="566.0" prefWidth="1134.0" spacing="10.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="49.0" prefWidth="1134.0" spacing="2.0">
+                     <children>
+                        <Label fx:id="labelSlideshow" />
+                        <Label fx:id="labelFilename">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="labelColor">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+                      <ImageView fx:id="imageView" fitHeight="492.0" fitWidth="1121.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>
