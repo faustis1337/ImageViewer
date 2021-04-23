@@ -10,7 +10,7 @@ public class Scheduler extends Task<Image> {
     private final BlockingQueue<Slideshow> queue = new ArrayBlockingQueue<>(100);
     private final int delay;
 
-    private int currentImageIndex;
+    private int currentImageIndex = 0;
     private Slideshow currentSlideshow;
 
     public Scheduler(List<Slideshow> slideshows, int delay) {

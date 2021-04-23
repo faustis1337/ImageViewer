@@ -88,7 +88,7 @@ public class ImageViewerWindowController implements Initializable {
     }
 
     public void handleStopAction(ActionEvent actionEvent) {
-        if (!executorService.isTerminated() || !executorService.isShutdown()) {
+        if (executorService!=null && (!executorService.isTerminated() || !executorService.isShutdown())) {
             executorService.shutdownNow();
         }
         if (scheduler != null) {
